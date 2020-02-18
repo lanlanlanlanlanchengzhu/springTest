@@ -17,7 +17,7 @@ public class TestServiceImpl implements TestService {
     @Override
     @EnableLog
     public void test(ReqParam param) {
-        stringRedisTemplate.opsForValue().set(param.getReqId(), param.getName());
+        stringRedisTemplate.opsForValue().set(param.getReqId(), param.getSourceName());
         System.out.println("test function");
     }
 

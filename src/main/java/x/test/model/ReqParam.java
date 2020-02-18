@@ -1,32 +1,33 @@
 package x.test.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import x.test.annotion.TestConstrain;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReqParam {
 
+    /**
+     * 请求流水号
+     */
+    @TestConstrain(message = "自定义校验")
     public String reqId;
 
-    public String name;
+    /**
+     * 请求来源
+     */
+    public String sourceName;
 
-    public String getReqId() {
-        return reqId;
-    }
+    /**
+     * 来源IP
+     */
+    @Pattern(regexp = "^((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})(\\.((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})){3}$")
+    public String sourceIp;
 
-    public void setReqId(String reqId) {
-        this.reqId = reqId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "ReqParam{" +
-                "reqId='" + reqId + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }
