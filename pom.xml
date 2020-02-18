@@ -64,7 +64,6 @@
 			<version>${fastjson.version}</version>
 		</dependency>
 
-
 	</dependencies>
 
 	<repositories>

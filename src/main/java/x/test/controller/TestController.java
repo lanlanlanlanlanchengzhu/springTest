@@ -32,7 +32,6 @@ public class TestController {
 //    @EnableLog
     @RequestMapping(path = "/testRequestBody")
     public JSONObject testRequestBody(@RequestBody @Validated ReqParam reqParam) {
-        System.out.println(reqParam);
         testService.test(reqParam);
         JSONObject res = new JSONObject();
         res.put("retCode", "0");
@@ -51,7 +50,6 @@ public class TestController {
 //    @EnableLog
     @RequestMapping(path = "/testFrom")
     public String testFrom(String reqId, String name) {
-        System.out.println(reqId + name);
         // testService.test("hello");
         return "test";
     }
@@ -66,7 +64,6 @@ public class TestController {
 //    @EnableLog
     @RequestMapping(path = "/testHttpServletRequest")
     public String testHttpServletRequest(HttpServletRequest httpServletRequest) {
-        System.out.println(httpServletRequest.getParameter("reqId"));
         // testService.test("hello");
         return "test";
     }
@@ -83,7 +80,6 @@ public class TestController {
 //    @EnableLog
     @RequestMapping(path = "/testBean")
     public String testBean(ReqParam reqParam) {
-        System.out.println(reqParam);
         // testService.test("hello");
         return "test";
     }
@@ -100,7 +96,6 @@ public class TestController {
 //    @EnableLog
     @RequestMapping(path = "/testRequestBodyMap")
     public String testRequestBodyMap(@RequestBody Map<String, String> reqParam) {
-        System.out.println(reqParam);
         // testService.test("hello");
         return "test";
     }

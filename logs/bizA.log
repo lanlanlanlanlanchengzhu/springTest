@@ -1,0 +1,2 @@
+[2020-02-19 00:51:03.989] INFO [http-nio-8080-exec-1] TestServiceImpl.java:35 - test function
+[2020-02-19 00:54:07.690] INFO [http-nio-8080-exec-1] TestServiceImpl.java:36 - loggerBizA test function

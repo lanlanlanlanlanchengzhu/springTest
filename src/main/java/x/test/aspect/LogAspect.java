@@ -15,7 +15,6 @@ public class LogAspect {
 
     @Before("log()")
     public void logActual (JoinPoint joinPoint) {
-        System.out.println("content : " + joinPoint.getTarget().getClass().getName());
     }
 
 }
