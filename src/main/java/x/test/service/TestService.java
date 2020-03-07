@@ -1,8 +1,6 @@
 package x.test.service;
 
-import org.springframework.stereotype.Service;
-import x.test.annotion.EnableLog;
-import x.test.model.ReqParam;
+import x.test.model.dto.ReqParam;
 
 //@Service
 public interface TestService {

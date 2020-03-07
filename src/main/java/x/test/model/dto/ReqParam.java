@@ -1,4 +1,4 @@
-package x.test.model;
+package x.test.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +17,12 @@ public class ReqParam {
      * 请求流水号
      */
     @TestConstrain(message = "自定义校验")
-    public String reqId;
+    private String reqId;
 
     /**
      * 请求来源
      */
-    public String sourceName;
+    private String sourceName;
 
     /**
      * 来源IP

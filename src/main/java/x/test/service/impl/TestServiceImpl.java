@@ -14,8 +14,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import x.test.annotion.EnableLog;
 import x.test.constants.LogTypeEnum;
-import x.test.model.ReqParam;
+import x.test.mapper.PerformanceAnalyzeConfigMapper;
+import x.test.model.dto.ReqParam;
+import x.test.model.po.PerformanceAnalyzeConfig;
 import x.test.service.TestService;
+
+import java.util.List;
 
 @Service
 //@Service(value = "xxx")
@@ -26,9 +30,12 @@ public class TestServiceImpl implements TestService, BeanFactoryAware, BeanNameA
     private static final Logger loggerBizB = LoggerFactory.getLogger(LogTypeEnum.LOG_TYPE_BIZB.getLogType());
 
     @Autowired
-    StringRedisTemplate stringRedisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     BeanFactory beanFactory;
+
+    @Autowired
+    private PerformanceAnalyzeConfigMapper performanceAnalyzeConfigMapper;
 
     @Override
     @EnableLog
@@ -36,6 +43,12 @@ public class TestServiceImpl implements TestService, BeanFactoryAware, BeanNameA
         stringRedisTemplate.opsForValue().set(param.getReqId(), param.getSourceName());
         loggerBizA.info("loggerBizA test function");
         loggerBizB.info("loggerBizB test function");
+        try {
+            List<PerformanceAnalyzeConfig> res = performanceAnalyzeConfigMapper.queryAllPerformanceAnalyzeConfig();
+            log.info(res.get(0).toString());
+        } catch (Exception e) {
+            log.error("", e);
+        }
     }
 
     public TestServiceImpl() {

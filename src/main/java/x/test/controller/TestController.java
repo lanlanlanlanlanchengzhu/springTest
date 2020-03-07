@@ -6,8 +6,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import x.test.annotion.TestConstrain;
-import x.test.model.ReqParam;
+import x.test.handler.processor.StatelessProcessor;
+import x.test.model.dto.ReqParam;
 import x.test.service.TestService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +19,9 @@ public class TestController {
 
     @Autowired
     TestService testService;
+
+    @Autowired
+    StatelessProcessor statelessProcessor;
 
     /**
      * 通过一个Bean接收json数据
@@ -35,6 +38,7 @@ public class TestController {
         testService.test(reqParam);
         JSONObject res = new JSONObject();
         res.put("retCode", "0");
+        statelessProcessor.invoke();
         return res;
     }
 

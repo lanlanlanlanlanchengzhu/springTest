@@ -9,6 +9,9 @@ target/
 mvnw
 mvnw.cmd
 
+### log ###
+logs/**
+
 ### STS ###
 .apt_generated
 .classpath
@@ -34,3 +37,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### .DS_Store
+**/.DS_Store

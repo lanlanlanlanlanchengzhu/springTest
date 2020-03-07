@@ -14,7 +14,7 @@ public class TestBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log.info("TestBeanPostProcessor postProcessBeforeInitialization invoked" + beanName);
+//        log.info("TestBeanPostProcessor postProcessBeforeInitialization invoked" + beanName);
         return bean;
     }
 
